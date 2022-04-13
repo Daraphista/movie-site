@@ -15,7 +15,7 @@ const Header = () => {
   )
 }
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
 
@@ -34,6 +34,7 @@ const SearchBar = styled.label`
   gap: .5rem;
 
   background-color: #4e4e4e;
+  cursor: text;
 `
 
 const SearchInput = styled.input`
