@@ -15,7 +15,7 @@ const Header = (props) => {
   const getSearchResults = async (searchQuery) => {
     navigate(`/search`);
     try {
-      const result = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=394a500dc1b768ebe40e5c02328b32bf&language=en-US&query=${searchQuery}&page=1&include_adult=false`);
+      const result = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=394a500dc1b768ebe40e5c02328b32bf&language=en-US&query=${searchQuery}&page=1&include_adult=false`);
       const data = await result.json();
       liftSearchResults(data.results);
       console.log(data.results);
