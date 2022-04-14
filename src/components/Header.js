@@ -13,7 +13,7 @@ const Header = (props) => {
   const navigate = useNavigate();
 
   const getSearchResults = async (searchQuery) => {
-    navigate(`/search`);
+    navigate(`/movie-site/search`);
     try {
       const result = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=394a500dc1b768ebe40e5c02328b32bf&language=en-US&query=${searchQuery}&page=1&include_adult=false`);
       const data = await result.json();
@@ -29,14 +29,14 @@ const Header = (props) => {
   const [isInHome, setIsInHome] = useState(true);
 
   useEffect(() => {
-    setIsInHome(location.pathname === "/");
+    setIsInHome(location.pathname === "/movie-site");
   })
 
   return (
     <HeaderContainer>
       {isInHome
         ? null
-        : <LinkButton to="/"><BsArrowLeft/>Back to Home</LinkButton>
+        : <LinkButton to="/movie-site"><BsArrowLeft/>Back to Home</LinkButton>
       }
       <SearchForm
         onSubmit={e => {

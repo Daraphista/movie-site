@@ -15,7 +15,7 @@ const MovieResults = (props) => {
               onClick={() => {
                 console.log(movie.id);
                 getMovieId(movie.id)
-                navigate("/watch");
+                navigate("/movie-site/watch");
               }}
             >
               <MoviePoster poster={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
