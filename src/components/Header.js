@@ -52,6 +52,7 @@ const Header = (props) => {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               required
+              autoComplete="off"
             />
         </SearchBar>
       </SearchForm>
@@ -88,6 +89,7 @@ const SearchInput = styled.input`
   background-color: transparent;
   border: none;
   color: white;
+  flex: 1;
 
   font-size: 1.25rem;
 
