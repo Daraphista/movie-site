@@ -36,7 +36,7 @@ const Header = (props) => {
     <HeaderContainer>
       {isInHome
         ? null
-        : <LinkButton to="/movie-site"><BsArrowLeft/>Back to Home</LinkButton>
+        : <LinkButton to="/movie-site"><BsArrowLeft/>Home</LinkButton>
       }
       <SearchForm
         onSubmit={e => {
@@ -46,14 +46,14 @@ const Header = (props) => {
       >
         <SearchBar htmlFor="search">
           <AiOutlineSearch />
-            <SearchInput 
-              id="search"
-              placeholder="I want to watch..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              required
-              autoComplete="off"
-            />
+          <SearchInput 
+            id="search"
+            placeholder="I want to watch..."
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            required
+            autoComplete="off"
+          />
         </SearchBar>
       </SearchForm>
     </HeaderContainer>
@@ -65,10 +65,18 @@ const HeaderContainer = styled.header`
   justify-content: center;
 
   padding: 4rem;
+
+  @media (max-width: 640px) {
+    padding-inline: 15px;
+  }
 `
 
 const SearchForm = styled.form`
   width: max(500px, 50%);
+
+  @media (max-width: 640px) {
+    width: min(300px, 90%);
+  }
 `
 
 const SearchBar = styled.label`
@@ -83,6 +91,10 @@ const SearchBar = styled.label`
 
   background-color: #4e4e4e;
   cursor: text;
+
+  @media (max-width: 640px) {
+    font-size: 1.25rem;
+  }
 `
 
 const SearchInput = styled.input`
@@ -96,18 +108,21 @@ const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media (max-width: 640px) {
+    font-size: 1rem;
+  }
 `
 
 const LinkButton = styled(Link)`
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding-inline: 1rem;
+  padding: .75rem;
 
   border-radius: 999px;
 
   margin-right: auto;
-  background-color: #4e4e4e;
   border: none;
   font-size: 1.5rem;
   color: white;
@@ -118,7 +133,16 @@ const LinkButton = styled(Link)`
   font-family: Arial, Helvetica, sans-serif;
 
   &:hover {
-    background-color: gray;
+    background-color: #4e4e4e;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 1rem;
+    gap: .5rem;
+
+    position: absolute;
+    top: 5px;
+    left: 5px
   }
 `
 

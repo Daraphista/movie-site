@@ -51,7 +51,7 @@ const App = () => {
 }
 
 const AppContainer = styled.div`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 2rem;
 
   display: flex;

@@ -17,12 +17,11 @@ const PlayerContainer = styled.div`
 
   display: flex;
   justify-content: center;
-  padding: 4rem;
 `
 
 const EmbeddedPlayer = styled.iframe`
-  width: 80vw;
-  height: 40vw;
+  width: 95vw;
+  height: 50vw;
 
   border: none;
 `

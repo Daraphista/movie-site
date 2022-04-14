@@ -34,6 +34,10 @@ const MovieResultsContainer = styled.div`
   grid-template-columns: repeat(auto-fit, 350px);
   gap: 1rem;
   justify-content: center;
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(auto-fit, 150px);
+  }
 `
 
 const MovieCard = styled.div`
@@ -44,6 +48,10 @@ const MovieCard = styled.div`
   height: 450px;  
   cursor: pointer;
   box-shadow: 0px 0px 4px;
+
+  @media (max-width: 640px) {
+    height: 220px;
+  }
 `
 
 const MoviePoster = styled.div`
