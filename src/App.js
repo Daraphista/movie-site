@@ -25,14 +25,14 @@ const App = () => {
       <Header liftSearchResults={liftSearchResults} />
       <Routes>
         <Route 
-          path="/" 
+          path="movie-site/" 
           element={<Home 
             liftSearchResults={liftSearchResults} 
             getMovieId={getMovieId}
             />} 
             />
         <Route 
-          path="/search" 
+          path="movie-site/search" 
           element={<Search 
             liftSearchResults={liftSearchResults} 
             searchResults={searchResults}
@@ -40,7 +40,7 @@ const App = () => {
             />} 
         />
         <Route 
-          path="/watch"
+          path="movie-site/watch"
           element={<Watch 
             movieId={movieId}
           />}
