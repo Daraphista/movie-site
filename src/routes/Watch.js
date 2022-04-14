@@ -4,7 +4,6 @@ const Watch = (props) => {
 
   return (
     <PlayerContainer>
-      {/* {props.movieId} */}
       <EmbeddedPlayer
         src={`https://www.2embed.ru/embed/tmdb/movie?id=${props.movieId}`} 
         allowFullScreen
@@ -24,6 +23,8 @@ const PlayerContainer = styled.div`
 const EmbeddedPlayer = styled.iframe`
   width: 80vw;
   height: 40vw;
+
+  border: none;
 `
 
 export default Watch;
