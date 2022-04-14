@@ -34,6 +34,7 @@ const MovieCard = styled.div`
   
   height: 450px;  
   cursor: pointer;
+  box-shadow: 0px 0px 4px;
 `
 
 const MoviePoster = styled.div`
