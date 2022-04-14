@@ -68,7 +68,7 @@ const HeaderContainer = styled.header`
 `
 
 const SearchForm = styled.form`
-  width: 50%;
+  width: max(500px, 50%);
 `
 
 const SearchBar = styled.label`
