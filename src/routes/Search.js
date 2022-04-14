@@ -1,11 +1,14 @@
 import MovieResults from "../components/MovieResults";
 
 const Search = (props) => {
-  const { searchResults } = props;
+  const { searchResults, getMovieId } = props;
 
   return (
     <div>
-      <MovieResults movies={searchResults} />
+      <MovieResults 
+        movies={searchResults} 
+        getMovieId={getMovieId}
+      />
     </div>
   )
 }

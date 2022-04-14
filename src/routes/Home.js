@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
 import MovieResults from "../components/MovieResults";
 
-const Home = () => {
+const Home = (props) => {
+  const { getMovieId } = props;
+
   const [recommendedMovies, setRecommendedMovies] = useState([]);
   
   const getRecommendedMovies = async () => {
@@ -22,8 +23,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
-      <MovieResults movies={recommendedMovies} />
+      <MovieResults movies={recommendedMovies} getMovieId={getMovieId} />
     </div>
   )
 }

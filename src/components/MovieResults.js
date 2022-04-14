@@ -1,14 +1,23 @@
 import { FaPlay } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const MovieResults = (props) => {
-  const { movies } = props;
+  const { movies, getMovieId } = props;
+
+  const navigate = useNavigate();
 
   return (
     <MovieResultsContainer>
       {movies.map(movie => {
         return (
-            <MovieCard>
+            <MovieCard
+              onClick={() => {
+                console.log(movie.id);
+                getMovieId(movie.id)
+                navigate("/watch");
+              }}
+            >
               <MoviePoster poster={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
               <TitleCard>{movie.title} <FaPlay /></TitleCard>
             </MovieCard>
