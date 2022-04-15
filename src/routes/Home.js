@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MovieResults from "../components/MovieResults";
+import MovieCards from "../components/MovieCards";
 
 const Home = (props) => {
   const { getMovieId } = props;
@@ -23,7 +23,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <MovieResults movies={recommendedMovies} getMovieId={getMovieId} />
+      <MovieCards movies={recommendedMovies} getMovieId={getMovieId} />
     </div>
   )
 }

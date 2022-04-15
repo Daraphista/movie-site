@@ -2,7 +2,7 @@ import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const MovieResults = (props) => {
+const MovieCards = (props) => {
   const { movies, getMovieId } = props;
 
   const navigate = useNavigate();
@@ -89,4 +89,4 @@ const TitleCard = styled.div`
   }
 `
 
-export default MovieResults;
+export default MovieCards;
