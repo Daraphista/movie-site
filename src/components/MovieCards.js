@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const MovieCards = (props) => {
-  const { movies, getMovieId } = props;
+  const { movies, shows, getMovieId } = props;
 
   const navigate = useNavigate();
 
@@ -11,17 +11,30 @@ const MovieCards = (props) => {
     <MovieResultsContainer>
       {movies.map(movie => {
         return (
-            <MovieCard
-              onClick={() => {
-                console.log(movie.id);
-                getMovieId(movie.id)
-                navigate("/movie-site/watch");
-              }}
-            >
-              <MoviePoster poster={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
-              <TitleCard>{movie.title} <FaPlay /></TitleCard>
-            </MovieCard>
+          <MovieCard
+            onClick={() => {
+              getMovieId(movie.id)
+              navigate("/movie-site/watch");
+            }}
+          >
+            <MoviePoster poster={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+            <TitleCard>{movie.title} <FaPlay /></TitleCard>
+          </MovieCard>
         );
+      })}
+      {shows.map(show => {
+        return (
+          <MovieCard
+            onClick={() => {
+              getMovieId(show.id)
+              navigate("/movie-site/watch");
+            }}
+          >
+            <ShowIndicator>TV</ShowIndicator>
+            <MoviePoster poster={`https://image.tmdb.org/t/p/original/${show.poster_path}`} />
+            <TitleCard>{show.name} <FaPlay /></TitleCard>
+          </MovieCard>
+        )
       })}
     </MovieResultsContainer>
   );
@@ -86,6 +99,23 @@ const TitleCard = styled.div`
   ${MovieCard}:hover & {
     display: flex;
     flex-direction: column;
+  }
+`
+
+const ShowIndicator = styled.div`
+  position: absolute;
+  top: 3%;
+  right: 4%;
+
+  color: white;
+  background-color: #1c1d1f;
+  padding: .5rem;
+  
+  border-radius: 5px;
+  z-index: 999;
+
+  ${MovieCard}:hover & {
+    display: flex;
   }
 `
 
