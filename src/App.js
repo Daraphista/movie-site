@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Search from "./routes/Search";
 import Header from "./components/Header";
 import Watch from "./routes/Watch";
+import WatchShow from "./routes/WatchShow";
 
 
 const App = () => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResultsMovies, setSearchResultsMovies] = useState([]);
+  const [searchResultsShows, setSearchResultsShows] = useState([]);
   
-  const liftSearchResults = (fetchedSearchResults) => {
-    setSearchResults(fetchedSearchResults);
+  const liftSearchResultsMovies = (fetchedSearchResults) => {
+    setSearchResultsMovies(fetchedSearchResults);
+  }
+
+  const liftSearchResultsShows = (fetchedSearchResults) => {
+    setSearchResultsShows(fetchedSearchResults);
   }
 
   const [movieId, setMovieId] = useState(null);
@@ -22,28 +28,33 @@ const App = () => {
 
   return (
     <AppContainer>
-      <Header liftSearchResults={liftSearchResults} />
+      <Header 
+        liftSearchResultsMovies={liftSearchResultsMovies} 
+        liftSearchResultsShows={liftSearchResultsShows}
+      />
       <Routes>
         <Route 
           path="movie-site" 
           element={<Home 
-            liftSearchResults={liftSearchResults} 
+            liftSearchResults={liftSearchResultsMovies} 
             getMovieId={getMovieId}
             />} 
             />
         <Route 
           path="movie-site/search" 
           element={<Search 
-            liftSearchResults={liftSearchResults} 
-            searchResults={searchResults}
+            searchResultsMovies={searchResultsMovies}
+            searchResultsShows={searchResultsShows}
             getMovieId={getMovieId}
             />} 
         />
         <Route 
           path="movie-site/watch"
-          element={<Watch 
-            movieId={movieId}
-          />}
+          element={<Watch movieId={movieId} />}
+        />
+        <Route
+          path="movie-site/watch-show"
+          element={<WatchShow showID={movieId}/>}
         />
       </Routes>
     </AppContainer>
@@ -51,7 +62,6 @@ const App = () => {
 }
 
 const AppContainer = styled.div`
-  /* min-height: 100vh; */
   padding-bottom: 2rem;
 
   display: flex;

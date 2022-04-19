@@ -1,12 +1,13 @@
-import MovieCards from "../components/MovieCards";
+import MovieAndTVCards from "../components/MovieAndTVCards";
 
 const Search = (props) => {
-  const { searchResults, getMovieId } = props;
+  const { searchResultsMovies, searchResultsShows, getMovieId } = props;
 
   return (
     <div>
-      <MovieCards 
-        movies={searchResults} 
+      <MovieAndTVCards 
+        movies={searchResultsMovies}
+        shows={searchResultsShows}
         getMovieId={getMovieId}
       />
     </div>

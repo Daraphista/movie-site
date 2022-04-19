@@ -5,20 +5,29 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+
 const Header = (props) => {
-  const { liftSearchResults } = props;
+  const { liftSearchResultsShows, liftSearchResultsMovies } = props;
 
   const [searchQuery, setSearchQuery] = useState([])
   
   const navigate = useNavigate();
 
-  const getSearchResults = async (searchQuery) => {
-    navigate(`/movie-site/search`);
+  const getSearchResultsMovies = async (searchQuery) => {
     try {
       const result = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=394a500dc1b768ebe40e5c02328b32bf&language=en-US&query=${searchQuery}&page=1&include_adult=false`);
       const data = await result.json();
-      liftSearchResults(data.results);
-      console.log(data.results);
+      liftSearchResultsMovies(data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  const getSearchResultsShows = async (searchQuery) => {
+    try {
+      const result = await fetch(`https://api.themoviedb.org/3/search/tv?api_key=394a500dc1b768ebe40e5c02328b32bf&language=en-US&page=1&query=${searchQuery}&include_adult=false`)
+      const data = await result.json();
+      liftSearchResultsShows(data.results);
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +50,9 @@ const Header = (props) => {
       <SearchForm
         onSubmit={e => {
           e.preventDefault();
-          getSearchResults(searchQuery);
+          navigate(`/movie-site/search`);
+          getSearchResultsMovies(searchQuery);
+          getSearchResultsShows(searchQuery);
         }}
       >
         <SearchBar htmlFor="search">
